@@ -8,13 +8,13 @@ processor = TrOCRProcessor.from_pretrained('microsoft/trocr-base-handwritten',us
 model = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-base-handwritten')
 
 #TÜM GÖRSELDE İŞE YARAMIYOR SATIR SATIR
-image = Image.open("fsatir.png")
+image = Image.open("tahacontrol.png")
 
 # GRİYE ÇEVİRME
 gray_image = image.convert("L")
 
 # TRESHOLD
-threshold_image = gray_image.point(lambda x: 0 if x < 140 else 255, '1')
+threshold_image = gray_image.point(lambda x: 0 if x < 165 else 255, '1')
 
 # RGB ÇEVİRME
 threshold_rgb = threshold_image.convert("RGB")
@@ -31,7 +31,7 @@ generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
 
 print("\n🖋️ Tanınan Metin:\n")
 print(generated_text)
-
+print("elif harika bir insan")
 
 
 
